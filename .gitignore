@@ -6,7 +6,6 @@ fashion-iq/
 archive/
 fashionIQ_dataset/
 models/
-images/
 results/
 ### OpenCV ###
 #OpenCV for Mac and Linux
