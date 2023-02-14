@@ -18,11 +18,11 @@
 
 ![](images/cir-overview.png "Composed image retrieval overview")
 
-### CLIP task-oriented fine-tuning 
+### CLIP task-oriented fine-tuning
 
 ![](images/clip-fine-tuning.png "CLIP task oriented fine-tuning")
 
-### Combiner training 
+### Combiner training
 
 ![](images/combiner-training.png "Combiner training")
 
@@ -106,53 +106,53 @@ project_base_path
             | cap.dress.train.json
             | cap.dress.val.json
             | ...
-            
+
       └───  images
             | B00006M009.jpg
             | B00006M00B.jpg
             | B00006M6IH.jpg
             | ...
-            
+
       └─── image_splits
             | split.dress.test.json
             | split.dress.train.json
             | split.dress.val.json
             | ...
 
-└───  cirr_dataset  
+└───  cirr_dataset
        └─── train
             └─── 0
                 | train-10108-0-img0.png
                 | train-10108-0-img1.png
                 | train-10108-1-img0.png
                 | ...
-                
+
             └─── 1
                 | train-10056-0-img0.png
                 | train-10056-0-img1.png
                 | train-10056-1-img0.png
                 | ...
-                
+
             ...
-            
+
        └─── dev
             | dev-0-0-img0.png
             | dev-0-0-img1.png
             | dev-0-1-img0.png
             | ...
-       
+
        └─── test1
             | test1-0-0-img0.png
             | test1-0-0-img1.png
-            | test1-0-1-img0.png 
+            | test1-0-1-img0.png
             | ...
-       
+
        └─── cirr
             └─── captions
                 | cap.rc2.test1.json
                 | cap.rc2.train.json
                 | cap.rc2.val.json
-                
+
             └─── image_splits
                 | split.rc2.test1.json
                 | split.rc2.train.json
@@ -210,3 +210,15 @@ We gratefully acknowledge the support of NVIDIA Corporation with the donation of
 ## Citation
 
 ## Contacts
+
+## [Added by ZH] Additional Notes
+
+### Preparing CIRR
+
+1. Clone CIRR dataset `git clone -b cirr_dataset https://github.com/Cuberick-Orion/CIRR.git cirr`
+2. Raw images from `https://lil.nlp.cornell.edu/resources/NLVR2/`
+3. Run test
+```
+python src/cirr_test_submission.py --submission-name cirr_submission --combining-function 'combiner' --combiner-path models/cirr_comb_RN50x4_fullft.pt --projection-dim 2560 --hidden-dim 5120 --clip-model-name RN50x4 --clip-model-path models/cirr_clip_RN50x4_fullft.pt --target-ratio 1.25 --transform targetpad
+```
+4. Evaluation server: Upload the 2 json files individually at `https://cirr.cecs.anu.edu.au/`

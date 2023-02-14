@@ -7,6 +7,9 @@ archive/
 fashionIQ_dataset/
 models/
 results/
+cirr_dataset/
+submission/
+
 ### OpenCV ###
 #OpenCV for Mac and Linux
 #build and release folders

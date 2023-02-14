@@ -19,6 +19,8 @@ from combiner import Combiner
 from utils import element_wise_sum, device
 
 
+# python src/cirr_test_submission.py --submission-name cirr_submission --combining-function 'combiner' --combiner-path models/cirr_comb_RN50x4_fullft.pt --projection-dim 2560 --hidden-dim 5120 --clip-model-name RN50x4 --clip-model-path models/cirr_clip_RN50x4_fullft.pt --target-ratio 1.25 --transform targetpad
+
 def generate_cirr_test_submissions(combining_function: callable, file_name: str, clip_model: CLIP,
                                    preprocess: callable):
     """
